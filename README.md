@@ -8,11 +8,12 @@ I use it like this in my Dockerfile
 
 ```Dockerfile
 HEALTHCHECK --interval=30s CMD ./node_modules/.bin/healthcheck localhost/liveness:8080
+```
 
-... or perhaps you need a readiness check:
+Or, perhaps you need a readiness check.
 
 ```js
-healthcheck localhost/readiness:8080 --type json --search read=true;
+healthcheck localhost/readiness:8080 --type json --search ready=true;
 ```
 
 ## Install
@@ -22,8 +23,6 @@ npm install @jwerre/healthcheck
 ```
 
 ## Usage
-
-### Module
 
 ```js
 const healthcheck = require('healtcheck');
@@ -35,7 +34,7 @@ const res = async healthcheck({
 })
 ```
 
-### Options
+## Options
 
 |  Option  | Type | Description |
 |-- |-- |-- |
@@ -49,5 +48,26 @@ const res = async healthcheck({
 ## CLI
 
 ```bash
-healthcheck --help
+$ healthcheck --help
+
+Monitor the health of your web applications, web servers, and other resources
+
+Usage: 
+healthcheck https://www.example.com
+healthcheck --type html --search "^<!doctype html.*" https://www.example.com
+healthcheck --type header --search "content-type=text/html; charset=UTF-8" https://www.example.com
+healthcheck --type json --search key=value http://echo.jsontest.com/key/value
+
+
+Options:
+-m, --method	Request port (default: 'GET')
+-t, --timeout	Request timeout in milliseconds (default: 800)
+-T, --type		Type of healthcheck either status, headers, html or json (default: status)
+-s, --search	A search string to find in the body of the response.
+				if type is html a string or Regular Expression is allowed. If type is json or header
+				provide a key and value e.g.: key=value.
+-h, --help		Show help.
+-v, --verbose	Verbose output.
+
+
 ```
