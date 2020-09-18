@@ -1,29 +1,29 @@
 {
-  "name": "@jwerre/healthcheck",
-  "version": "0.0.0",
-  "description": "Monitor the health of your web applications, web servers, and other resources",
-  "main": "lib/healthcheck.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/jwerre/healthcheck.git"
-  },
-  "keywords": [
-    "healthchech"
-  ],
-  "author": "Jonah Werre <jonah@surveyplanet.com> (https://surveyplanet.com)",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/jwerre/healthcheck/issues"
-  },
-  "homepage": "https://github.com/jwerre/healthcheck#readme",
-  "dependencies": {
-    "lodash.get": "^4.4.2",
-    "minimist": "^1.2.5"
-  },
-  "bin": {
-    "healthcheck": "./bin/healthcheck.js"
-  }
+    "name": "@jwerre/healthcheck",
+    "version": "1.0.0",
+    "description": "Monitor the health of your web applications, web servers, and other resources",
+    "main": "lib/healthcheck.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/jwerre/healthcheck.git"
+    },
+    "keywords": [
+        "healthchech"
+    ],
+    "author": "Jonah Werre <jonah@surveyplanet.com> (https://surveyplanet.com)",
+    "license": "UNLICENSED",
+    "bugs": {
+        "url": "https://github.com/jwerre/healthcheck/issues"
+    },
+    "homepage": "https://github.com/jwerre/healthcheck#readme",
+    "dependencies": {
+        "lodash.get": "^4.4.2",
+        "minimist": "^1.2.5"
+    },
+    "bin": {
+        "healthcheck": "./bin/healthcheck.js"
+    }
 }
