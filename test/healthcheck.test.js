@@ -3,6 +3,8 @@ const healthcheck = require('../lib/healthcheck');
 
 describe('Healthcheck', function () {
 	
+	// because example.com can be slow sometimes
+	this.timeout(8000);
 
 	it('should do a status check', async function () {
 
@@ -85,7 +87,7 @@ describe('Healthcheck', function () {
 		} catch (err) {
 			assert.fail(err);
 		}
-	
+
 		assert.ok(res);
 	
 	});

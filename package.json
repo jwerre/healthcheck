@@ -1,17 +1,21 @@
 {
     "name": "@jwerre/healthcheck",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Monitor the health of your web applications, web servers, and other resources",
     "main": "lib/healthcheck.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "./node_modules/.bin/mocha test"
     },
     "repository": {
         "type": "git",
         "url": "git+ssh://git@github.com/jwerre/healthcheck.git"
     },
     "keywords": [
-        "healthchech"
+        "healthcheck",
+        "search",
+        "status",
+        "liveness",
+        "readiness"
     ],
     "author": "Jonah Werre <jonah@surveyplanet.com> (https://surveyplanet.com)",
     "license": "UNLICENSED",
@@ -25,5 +29,8 @@
     },
     "bin": {
         "healthcheck": "./bin/healthcheck.js"
+    },
+    "devDependencies": {
+        "mocha": "^9.0.1"
     }
 }
