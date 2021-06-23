@@ -148,7 +148,7 @@ describe('Healthcheck', function () {
 	
 	});
 
-	it.skip('should do a json check with a deep search', async function () {
+	it.skip('should do a json check with a deep search [no great way to test this]', async function () {
 
 		let res;
 		try {
