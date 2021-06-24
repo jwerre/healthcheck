@@ -28,7 +28,7 @@ npm install @jwerre/healthcheck
 const healthcheck = require('healtcheck');
 
 const res = async healthcheck({
-	host: 'https://google.com',
+	url: 'https://google.com',
 	type: 'html',
 	search: /^<\!doctype html*/
 })
@@ -38,11 +38,11 @@ const res = async healthcheck({
 
 |  Option  | Type | Description |
 |-- |-- |-- |
-| host | String | Request url (required). |
+| url | String | Request url (required). |
 | method | String | Request port (default: 'GET'). |
 | timeout | Number | Request timeout in milliseconds (default: 800). |
 | type | String | Type of healthcheck either status, header, html or json (default: status). |
-| search | * | Search string, number, or regular expression to find in the body of the response. If type is html a string or Regular Expression is allowed. If type is JSON provide a key and value as an array e.g.: [key, value]. If type is status provide the status code. |
+| search | * | Search string to find in the response. If type is 'status' provide the status code you expect. If type is 'html' use a string or Regular Expression. If type is 'header' or 'json' provide a key and value as an array [key, value]. For nested values use dot syntax for the key e.g.: ['author.name.first', 'brian' |
 
 
 ## CLI
@@ -55,19 +55,19 @@ Monitor the health of your web applications, web servers, and other resources
 Usage: 
 healthcheck https://www.example.com
 healthcheck --type html --search "^<!doctype html.*" https://www.example.com
-healthcheck --type header --search "content-type=text/html; charset=UTF-8" https://www.example.com
+healthcheck --method HEAD --type header --search "content-type=text/html; charset=UTF-8" https://www.example.com
 healthcheck --type json --search key=value http://echo.jsontest.com/key/value
+healthcheck --type json --search author.name.first=brian https://www.example.com
 
 
 Options:
 -m, --method	Request port (default: 'GET')
 -t, --timeout	Request timeout in milliseconds (default: 800)
--T, --type		Type of healthcheck either status, headers, html or json (default: status)
--s, --search	A search string to find in the body of the response.
-				if type is html a string or Regular Expression is allowed. If type is json or header
-				provide a key and value e.g.: key=value.
--h, --help		Show help.
+-T, --type	Type of healthcheck either status, headers, html or json (default: status)
+-s, --search	Search string to find in the response. If type is 'status' provide the status code you expect. If type is 'html' use a string or Regular Expression. If type is 'header' or 'json' provide a key and value as an array [key, value]. For nested values use dot syntax for the key e.g.: ['author.name.first', 'brian']
+-h, --help	Show help.
 -v, --verbose	Verbose output.
+
 
 
 ```
