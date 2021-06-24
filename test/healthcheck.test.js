@@ -41,9 +41,9 @@ describe('Healthcheck', function () {
 
 	it('should do a status check and error because search was not satisfied', async function () {
 
-		let res, error;
+		let error;
 		try {
-			res = await healthcheck({
+			await healthcheck({
 				url: 'http://example.com',
 				search: 300,
 			});
@@ -94,9 +94,9 @@ describe('Healthcheck', function () {
 
 	it('should do a header check and error because search was not satisfied', async function () {
 
-		let res, error;
+		let error;
 		try {
-			res = await healthcheck({
+			await healthcheck({
 				url: 'http://example.com',
 				type: 'header',
 				search: ['yep', 'nope'],
@@ -168,9 +168,9 @@ describe('Healthcheck', function () {
 
 	it('should do a json check and error because search was not satisfied', async function () {
 
-		let res, error;
+		let error;
 		try {
-			res = await healthcheck({
+			await healthcheck({
 				url: 'http://echo.jsontest.com/apple/red',
 				type: 'json',
 				search: ['nope', 0],
@@ -228,7 +228,7 @@ describe('Healthcheck', function () {
 			res = await healthcheck({
 				url: 'https://example.com',
 				type: 'html',
-				search: /^\!DOCTYPE\sHTML/i,
+				search: /^!DOCTYPE\sHTML/i,
 			});
 
 		} catch (err) {
@@ -241,9 +241,9 @@ describe('Healthcheck', function () {
 
 	it('should do an html check and error because search was not satisfied', async function () {
 
-		let res, error;
+		let error;
 		try {
-			res = await healthcheck({
+			await healthcheck({
 				url: 'https://example.com',
 				type: 'html',
 				search: 'eXample doMain',

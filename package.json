@@ -1,6 +1,6 @@
 {
     "name": "@jwerre/healthcheck",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Monitor the health of your web applications, web servers, and other resources",
     "main": "lib/healthcheck.js",
     "scripts": {
@@ -31,6 +31,7 @@
         "healthcheck": "./bin/healthcheck.js"
     },
     "devDependencies": {
+        "eslint": "^7.29.0",
         "mocha": "^9.0.1"
     }
 }

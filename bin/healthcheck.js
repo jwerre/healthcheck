@@ -10,8 +10,8 @@ Monitor the health of your web applications, web servers, and other resources
 
 Usage: 
 healthcheck https://www.example.com
-healthcheck --type html --search "^<\!doctype html.*" https://www.example.com
-healthcheck --type header --search "content-type=text/html; charset=UTF-8" https://www.example.com
+healthcheck --type html --search "^<!doctype html.*" https://www.example.com
+healthcheck --method HEAD --type header --search "content-type=text/html" https://www.example.com
 healthcheck --type json --search key=value http://echo.jsontest.com/key/value
 healthcheck --type json --search author.name.first=brian https://example.com
 
@@ -20,9 +20,14 @@ Options:
 -m, --method	Request port (default: 'GET')
 -t, --timeout	Request timeout in milliseconds (default: 800)
 -T, --type	Type of healthcheck either status, headers, html or json (default: status)
--s, --search	Search string to find in the response. If type is 'status' provide the status code you expect. If type is 'html' use a string or Regular Expression. If type is 'header' or 'json' provide a key and value as an array [key, value]. For nested values use dot syntax for the key e.g.: ['author.name.first', 'brian']
--h, --help	Show help.
+-s, --search	Search string to find in the response. If type is 'status' 
+		provide the status code you expect. If type is 'html' use a 
+		string or Regular Expression. If type is 'header' or 'json' 
+		provide a key and value as an array [key, value]. For nested 
+		values use dot syntax for the key e.g.: ['author.name.first', 'brian']
+
 -v, --verbose	Verbose output.
+-h, --help	Show help.
 `);
 
 	process.exit(0);

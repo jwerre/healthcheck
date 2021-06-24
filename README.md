@@ -10,7 +10,7 @@ I use it like this in my Dockerfile
 HEALTHCHECK --interval=30s CMD ./node_modules/.bin/healthcheck localhost/liveness:8080
 ```
 
-Or, perhaps you need a readiness check.
+Or, perhaps you need a readiness check with a JSON search.
 
 ```js
 healthcheck localhost/readiness:8080 --type json --search ready=true;
@@ -29,8 +29,10 @@ const healthcheck = require('healtcheck');
 
 const res = async healthcheck({
 	url: 'https://google.com',
+	method: 'GET',
 	type: 'html',
-	search: /^<\!doctype html*/
+	search: /^<!doctype html*/,
+	timeout: 2000,
 })
 ```
 
@@ -61,13 +63,14 @@ healthcheck --type json --search author.name.first=brian https://www.example.com
 
 
 Options:
--m, --method	Request port (default: 'GET')
--t, --timeout	Request timeout in milliseconds (default: 800)
--T, --type	Type of healthcheck either status, headers, html or json (default: status)
--s, --search	Search string to find in the response. If type is 'status' provide the status code you expect. If type is 'html' use a string or Regular Expression. If type is 'header' or 'json' provide a key and value as an array [key, value]. For nested values use dot syntax for the key e.g.: ['author.name.first', 'brian']
--h, --help	Show help.
--v, --verbose	Verbose output.
-
-
-
+-m, --method		Request port (default: 'GET')
+-t, --timeout		Request timeout in milliseconds (default: 800)
+-T, --type			Type of healthcheck either status, headers, html or json (default: status)
+-s, --search		Search string to find in the response. If type is 'status' 
+					provide the status code you expect. If type is 'html' use a 
+					string or Regular Expression. If type is 'header' or 'json' 
+					provide a key and value as an array [key, value]. For nested 
+					values use dot syntax for the key e.g.: ['author.name.first', 'brian']
+-v, --verbose		Verbose output.
+-h, --help			Show help.
 ```
