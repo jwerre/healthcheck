@@ -1,6 +1,6 @@
 {
     "name": "@jwerre/healthcheck",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "Monitor the health of your web applications, web servers, and other resources",
     "main": "lib/healthcheck.js",
     "scripts": {
@@ -25,7 +25,7 @@
     "homepage": "https://github.com/jwerre/healthcheck#readme",
     "dependencies": {
         "lodash.get": "^4.4.2",
-        "minimist": "^1.2.5"
+        "minimist": "^1.2.6"
     },
     "bin": {
         "healthcheck": "./bin/healthcheck.js"
